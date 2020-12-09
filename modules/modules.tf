@@ -20,4 +20,5 @@ module "rds-postgre" {
   apply_immediately    =  "false"
   backup_window        =  "03:00-04:00"
   deletion_protection  =  "true"
+  skip_snapshot        =  "true"
 }

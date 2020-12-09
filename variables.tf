@@ -7,7 +7,11 @@ variable "identifier" {
 }
 
 variable "allocated_storage" {
- default = "20"
+ default = "10"
+}
+
+variable "max_allocated_storage" {
+ default = "100"
 }
 
 variable "storage_type" {
@@ -47,4 +51,6 @@ variable "deletion_protection" {
  default = "true"
 }
 
-
+variable "skip_snapshot" {
+ default = "true"
+}

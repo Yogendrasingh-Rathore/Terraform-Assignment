@@ -4,6 +4,7 @@ provider "aws"{
 
 resource "aws_db_instance" "terraform-rds" {
   allocated_storage    =  var.allocated_storage
+  max_allocated_storage=  var.max_allocated_storage
   identifier           =  var.identifier
   storage_type         =  var.storage_type
   engine               =  var.engine
@@ -15,4 +16,5 @@ resource "aws_db_instance" "terraform-rds" {
   apply_immediately    =  var.apply_immediately
   backup_window        =  var.backup_window
   deletion_protection  =  var.deletion_protection
+  skip_final_snapshot  =  var.skip_snapshot
 }
