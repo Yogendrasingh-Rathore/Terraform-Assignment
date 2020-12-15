@@ -3,7 +3,7 @@ variable "region"{
 }
 
 variable "identifier" {
-  default = "aurora-cluster"
+  default = "aurora-cluster-1"
 }
 
 variable "db_name" {

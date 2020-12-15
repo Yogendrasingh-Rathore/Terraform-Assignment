@@ -3,7 +3,7 @@ variable "region"{
 }
 
 variable "my_count"{
-  default = "2"
+  default = "1"
 }
 
 variable "identifier" {
@@ -17,3 +17,7 @@ variable "cluster_identifier" {
 variable "instance_class" {
   default = "db.t2.micro"
 }
+
+variable "engine" {}
+
+variable "engine_version" {}

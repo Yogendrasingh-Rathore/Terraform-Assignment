@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 2.7.0"
+    }
+  }
+}
+
 provider "aws"{
   region = "us-east-1"
 }
@@ -13,16 +22,16 @@ data "aws_secretsmanager_secret_version" "creds" {
 module "mysql_aurora_instances" {
   source               =  "../rds_instance/"
   my_count             =  2
-  identifier           =  "aurora-cluster-${count.index}"
+  identifier           =  "aurora-cluster"
   cluster_identifier   =  "mysql_aurora_cluster"
   instance_class       =  "db.t2.micro"
-  engine               =  "mysql"
+  engine               =  "aurora-mysql"
   engine_version       =  "5.7"
 }
 
 module "mysql_aurora_cluster" {
   source               =  "../rds_cluster/"
-  identifier           =  "mysql_aurora_cluster" 
+  identifier           =  "mysql-aurora-cluster" 
   azs                  =  data.aws_availability_zones.azs.names
   db_name              =  "my_db"
   username             =  "demo"
